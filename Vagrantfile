@@ -10,6 +10,6 @@ config.vm.provision "shell", inline: <<-SHELL
   # sudo sed -i -e"1i deb {{config.server}}/apt-mirror/mirror/archive.ubuntu.com/ubuntu xenial main restricted" /etc/apt/sources.list 
   sudo apt-get -y install apache2
   sudo apt-get update
-  sudo cp "/var/sync/html" "/var/www/html"
+  sudo cp -r /var/sync/html /var/www/
 SHELL
 end
