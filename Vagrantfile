@@ -1,9 +1,11 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.network "forwarded_port", guest:80, host:80, auto_correct: true
-  config.vm.synced_folder "/home/vazogg/Vagrant/Apache_Vagrant", "/var/sync/"  
+  config.vm.synced_folder "/home/vazogg/Vagrant/Apache_Vagrant", "/var/sync/" 
+  config.vm.hostname = "apache"
 config.vm.provider "virtualbox" do |vb|
-  vb.memory = "512"  
+  vb.memory = "512" 
+  vb.name = "apache"
 end
 config.vm.provision "shell", inline: <<-SHELL
   # Packages vom lokalen Server holen
